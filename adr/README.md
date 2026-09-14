@@ -20,8 +20,10 @@ o conteúdo.
 ADR registra **a decisão, o que foi descartado e o que se aceitou em troca**. Como o sistema
 funciona é outro documento.
 
-Para abrir uma ADR nova: copie a estrutura da ADR-001, use o próximo número livre da tabela
-abaixo e abra o pull request junto com a mudança que a decisão governa.
+Para abrir uma ADR nova: duplique o [`ADR-000-modelo.md`](ADR-000-modelo.md), use o próximo número
+livre indicado abaixo da tabela e abra o pull request junto com a mudança que a decisão governa. O
+modelo traz, em cada seção, o que se espera nela — ele é um arquivo de apoio, não uma decisão, e
+por isso não aparece no índice.
 
 ## Índice
 

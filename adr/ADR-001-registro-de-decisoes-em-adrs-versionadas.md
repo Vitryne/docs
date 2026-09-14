@@ -56,6 +56,7 @@ Convenções:
 - ADR publicada não se edita. Decisão revista entra como ADR nova e a anterior vira Substituída
 - Autoria identificada no front matter
 - O `README.md` da pasta mantém o índice e a fila de decisões ainda não registradas
+- `ADR-000-modelo.md` é o ponto de partida de toda ADR nova: não é decisão e não entra no índice
 
 ## Consequências
 
