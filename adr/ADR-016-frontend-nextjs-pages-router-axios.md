@@ -65,8 +65,9 @@ vindo de `NEXT_PUBLIC_API_URL` e concentra o interceptador de erro; os arquivos 
 - Pages Router recebe menos atenção da comunidade a cada versão, e material novo assume App Router
 - Sem biblioteca de estado nem de cache de dados, cada tela vai resolver carregamento e erro do
   seu jeito, e isso diverge rápido entre duas pessoas
-- `tailwind.config.ts` declara `primary: #B07A1F`, que não é a cor da marca — os tokens do Design
-  System ainda não chegaram ao código
+- `src/styles/global.css` declara `--color-primary: #9530D9` no bloco `@theme` do Tailwind v4 (não
+  há `tailwind.config.ts` — a configuração de tema é feita em CSS), e não há confirmação de que essa
+  é a cor da marca — os tokens do Design System ainda não chegaram ao código
 - Sem teste automatizado no front
 
 ## Validação
@@ -76,8 +77,9 @@ Nenhum componente importa `axios` diretamente, e toda chamada à API passa por u
 
 ## Evidências
 
-- `frontend/package.json` — `next` 15.5.18, `react` 19.1.0, `axios`, `tailwindcss` v4
+- `frontend/package.json` — `next` 15.5.18, `react` 19.1.0, `axios` ^1.17.0, `tailwindcss` ^4
 - `frontend/src/pages/` — `_app.tsx`, `_document.tsx`, `login.tsx`, `register.tsx`
 - `frontend/src/hooks/use-http.ts` e `frontend/src/service/login-service.ts`
+- `frontend/src/styles/global.css` — bloco `@theme` com os tokens de cor e fonte
 - ETI-63 Setup Inicial do Projeto Frontend Web
 - ETI-170 Criar tela de Login e a base de componentes reutilizáveis
