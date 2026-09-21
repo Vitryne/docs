@@ -60,8 +60,9 @@ por isso não aparece no índice.
 | [ADR-030](ADR-030-cerimonias-e-artefatos-de-sprint.md) | Cerimônias do time e artefatos que cada uma produz | Aceita | Governança |
 | [ADR-031](ADR-031-onde-cada-artefato-vive.md) | Um papel por ferramenta para decidir onde cada artefato do projeto vive | Aceita | Governança |
 | [ADR-032](ADR-032-lideranca-por-frente-tecnica.md) | Liderança por frente técnica, com um integrante coringa e papéis de processo acumulados | Aceita | Governança |
+| [ADR-033](ADR-033-onde-cada-artefato-vive.md) | Um papel por ferramenta para decidir onde cada artefato do projeto vive | Aceita | Governança |
 
-Próximo ID livre: **ADR-033**.
+Próximo ID livre: **ADR-034**.
 
 
 ## Fila de decisões ainda não registradas
