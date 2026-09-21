@@ -1,5 +1,5 @@
 ---
-id: ADR-020
+id: ADR-018
 titulo: Padrão de estilos do app mobile com StyleSheet, tokens compartilhados e nomes em snake_case
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-020 — Padrão de estilos do app mobile com StyleSheet, tokens compartilhados e nomes em snake_case
+# ADR-018 — Padrão de estilos do app mobile com StyleSheet, tokens compartilhados e nomes em snake_case
 
 ## Contexto e problema
 

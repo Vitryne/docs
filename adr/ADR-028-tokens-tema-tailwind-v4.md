@@ -1,5 +1,5 @@
 ---
-id: ADR-030
+id: ADR-028
 titulo: Tokens de tema no Tailwind CSS v4 via @theme no CSS global
 status: Aceita
 data: 2026-09-20
@@ -10,21 +10,21 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-030 — Tokens de tema no Tailwind CSS v4 via @theme no CSS global
+# ADR-028 — Tokens de tema no Tailwind CSS v4 via @theme no CSS global
 
 ## Contexto e problema
 
 O Tailwind CSS v4 muda a forma de configurar o tema: em vez de `tailwind.config.js/ts`, cores e
 fontes são declaradas dentro do próprio CSS com a diretiva `@theme`. O projeto precisa de um lugar
 único para as cores da marca e as fontes (Poppins, Bai Jamjuree) usadas em login e cadastro, com
-os valores vindos do Design System (ADR-018).
+os valores vindos do Design System (ADR-016).
 
 ## Critérios de decisão
 
 - Um único ponto de verdade para cor e fonte
 - Compatível com as classes utilitárias já usadas nos componentes (`bg-primary`,
   `text-text-secondary`)
-- Alinhamento com a paleta e a tipografia publicadas no Design System (ADR-018)
+- Alinhamento com a paleta e a tipografia publicadas no Design System (ADR-016)
 
 ## Alternativas consideradas
 
@@ -54,7 +54,7 @@ automaticamente pelo Tailwind (`bg-primary`, `font-display`).
 
 ### O que aceitamos em troca
 
-- Os valores são copiados à mão do Design System (ADR-018): nada detecta se o `@theme` e o Figma
+- Os valores são copiados à mão do Design System (ADR-016): nada detecta se o `@theme` e o Figma
   divergirem, e a conferência depende de revisão
 - Não há dark mode nem tema alternativo previsto na estrutura atual
 - As fontes são carregadas via `@import` direto do Google Fonts no CSS, fora do mecanismo de

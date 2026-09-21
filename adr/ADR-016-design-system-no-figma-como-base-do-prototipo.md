@@ -1,5 +1,5 @@
 ---
-id: ADR-018
+id: ADR-016
 titulo: Design System no Figma como base de componentes do protótipo
 status: Aceita
 data: 2026-09-13
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-018 — Design System no Figma como base de componentes do protótipo
+# ADR-016 — Design System no Figma como base de componentes do protótipo
 
 ## Contexto e problema
 
@@ -74,7 +74,7 @@ e não edita o arquivo, e registra:
 - Origem: o que veio do protótipo anterior e o que é extensão nova do sistema
 
 O Design System é insumo, não entrega. O que vale como referência de interface para o
-desenvolvimento é o protótipo montado a partir dele — ADR-019.
+desenvolvimento é o protótipo montado a partir dele — ADR-017.
 
 Como levar os valores do Design System para o código, sem que divirjam entre Figma, Tailwind e
 `commonStyles`, continua na fila de decisões.

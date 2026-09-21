@@ -1,10 +1,10 @@
 ---
 id: ADR-005
 titulo: Organizar o backend em camadas técnicas com regra de negócio nas entidades
-status: Proposta
+status: Aceita
 data: 2026-09-13
 autor: João Ehlers
-decisores: « a confirmar »
+decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
 substituida-por: —
@@ -41,7 +41,7 @@ tratar "entidade rica" como padrão aplicado uniformemente a todo o domínio.
 ## Alternativas consideradas
 
 1. Camadas técnicas, com regra de negócio aplicada seletivamente nas entidades conforme
-   critério explícito — escolhida, sujeita à validação do time.
+   critério explícito — escolhida.
 2. Monólito modular com DDD, como está documentado — perdeu porque: exigiria reorganizar
    todo o código por bounded context, com agregados, repositórios de domínio e camada de
    aplicação, num momento em que o time ainda está fechando o primeiro caso de uso completo.

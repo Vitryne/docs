@@ -1,5 +1,5 @@
 ---
-id: ADR-029
+id: ADR-027
 titulo: Estado do cadastro em etapas controlado localmente por índice
 status: Aceita
 data: 2026-09-20
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-029 — Estado do cadastro em etapas controlado localmente por índice
+# ADR-027 — Estado do cadastro em etapas controlado localmente por índice
 
 ## Contexto e problema
 

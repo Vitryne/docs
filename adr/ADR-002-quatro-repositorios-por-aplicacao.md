@@ -1,10 +1,10 @@
 ---
 id: ADR-002
 titulo: Separar o projeto em quatro repositórios por aplicação sob uma organização GitHub
-status: Proposta
+status: Aceita
 data: 2026-09-13
 autor: Equipe
-decisores: Equipe
+decisores: Bruno Abrahim, Gabriel Rodrigues, Henrique Pacheco, Hugo Zuin, Igor Costa, João Ehlers e Leonardo Xavier
 area: Governança
 substitui: —
 substituida-por: —
@@ -34,8 +34,6 @@ e onde ficariam as regras comuns ao time.
    `.github` da organização** — escolhida.
 2. **Monorepo único** — *perdeu porque:* exigiria ferramenta de build e versionamento
    coordenado que o time não domina, e todo PR passaria a disputar o mesmo histórico.
-3. **Dois repositórios (API e clientes)** — *perdeu porque:* web e mobile têm stacks, donos e
-   ritmos distintos; juntá-los só adiaria a separação.
 
 ## Decisão
 

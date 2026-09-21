@@ -1,5 +1,5 @@
 ---
-id: ADR-025
+id: ADR-023
 titulo: Ícones do app mobile com @expo/vector-icons e SVG próprio, sem ícones em PNG
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-025 — Ícones do app mobile com @expo/vector-icons e SVG próprio, sem ícones em PNG
+# ADR-023 — Ícones do app mobile com @expo/vector-icons e SVG próprio, sem ícones em PNG
 
 ## Contexto e problema
 
@@ -18,7 +18,7 @@ O app usa o `@expo/vector-icons` para os ícones, mas a biblioteca não tem todo
 telas precisam. Para os que faltam, a saída mais comum é usar uma imagem PNG.
 
 Ícone em PNG perde qualidade quando muda de tamanho, precisa de versões em várias resoluções e
-não troca de cor com facilidade. Além disso, as cores do app ficam em `colors` (ADR-020), e um
+não troca de cor com facilidade. Além disso, as cores do app ficam em `colors` (ADR-018), e um
 ícone com a cor presa no arquivo foge desse padrão.
 
 Esta ADR define como os ícones são usados e quando usar SVG, PNG ou JPG.
@@ -28,7 +28,7 @@ Esta ADR define como os ícones são usados e quando usar SVG, PNG ou JPG.
 - Ícone nítido em qualquer tamanho e tela
 - Trocar a cor do ícone pelo código, usando os tokens de `colors`
 - Poder usar ícones que não existem no `@expo/vector-icons`
-- Funcionar no Expo Go, sem development build (ADR-024)
+- Funcionar no Expo Go, sem development build (ADR-022)
 - Pouca configuração extra
 
 ## Alternativas consideradas
@@ -62,10 +62,10 @@ Regras para os SVGs:
   `react-native-svg-transformer`
 - Só ícones de uma cor, com `fill="currentColor"` (ou `stroke="currentColor"`) no arquivo, para a
   cor vir do código
-- Cor sempre vinda de `colors` (ADR-020), nunca escrita no arquivo nem na tela
+- Cor sempre vinda de `colors` (ADR-018), nunca escrita no arquivo nem na tela
 - Tamanho passado por `width` e `height` no uso do componente
 - Arquivos guardados em `assets/Icons`, na raiz do projeto, junto com as outras imagens
-- Nome do arquivo em camelCase (ADR-022), e o componente importado em PascalCase com sufixo
+- Nome do arquivo em camelCase (ADR-020), e o componente importado em PascalCase com sufixo
   `Icon` — por exemplo, `hanger.svg` importado como `HangerIcon`
 - Bibliotecas instaladas com `npx expo install`, para ficarem compatíveis com o SDK
 

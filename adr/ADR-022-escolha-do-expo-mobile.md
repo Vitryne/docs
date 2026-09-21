@@ -1,5 +1,5 @@
 ---
-id: ADR-024
+id: ADR-022
 titulo: Base do app mobile com Expo em vez de React Native CLI
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-024 — Base do app mobile com Expo em vez de React Native CLI
+# ADR-022 — Base do app mobile com Expo em vez de React Native CLI
 
 ## Contexto e problema
 
@@ -57,7 +57,7 @@ No dia a dia:
 - Bibliotecas instaladas com `npx expo install`, que escolhe a versão compatível com o SDK
 - Preferência por bibliotecas do próprio Expo (`expo-*`) ou que já funcionam no Expo Go
 - Configuração do app (nome, ícone, permissões) feita no `app.json`
-- Navegação com React Navigation, sem Expo Router, conforme a ADR-017
+- Navegação com React Navigation, sem Expo Router, conforme a ADR-015
 
 Hoje o app não usa nenhuma biblioteca com código nativo fora do Expo Go, então o Expo Go atende o
 desenvolvimento. Se alguma entrar, ela só poderá ser testada em um development build.

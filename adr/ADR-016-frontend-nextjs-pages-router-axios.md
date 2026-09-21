@@ -1,10 +1,10 @@
 ---
 id: ADR-016
 titulo: Frontend web em Next.js com Pages Router e camada de serviço sobre Axios
-status: Proposta
+status: Aceita
 data: 2026-09-13
-autor: Equipe
-decisores: « a confirmar »
+autor: Henrique Pacheco
+decisores: Gabriel Rodrigues e Henrique Pacheco
 area: Front-end
 substitui: —
 substituida-por: —
@@ -32,7 +32,7 @@ registrada e pode ter sido escolha de familiaridade, não de arquitetura.
 ## Alternativas consideradas
 
 1. **Next.js 15 com Pages Router, TypeScript, Tailwind CSS v4 e Axios encapsulado em hook** —
-   escolhida para registro, sujeita à validação.
+   escolhida.
 2. **Next.js com App Router** — *perdeu porque:* é o padrão atual do framework e o caminho para
    Server Components, mas traz um modelo mental diferente — layouts aninhados, componentes de
    servidor, limites de cliente — que o time não tinha quando fez o setup. Vale reabrir agora: a

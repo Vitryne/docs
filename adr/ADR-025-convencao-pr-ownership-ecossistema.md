@@ -1,5 +1,5 @@
 ---
-id: ADR-027
+id: ADR-025
 titulo: Convenção de PR e ownership compartilhados com o ecossistema Vitryne
 status: Aceita
 data: 2026-09-20
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-027 — Convenção de PR e ownership compartilhados com o ecossistema Vitryne
+# ADR-025 — Convenção de PR e ownership compartilhados com o ecossistema Vitryne
 
 ## Contexto e problema
 

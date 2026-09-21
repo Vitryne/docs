@@ -1,10 +1,10 @@
 ---
 id: ADR-010
 titulo: Nomenclatura em inglês no código e no banco, documentação em português
-status: Proposta
+status: Aceita
 data: 2026-09-13
 autor: Equipe
-decisores: « a confirmar »
+decisores: Bruno Abrahim, Gabriel Rodrigues, Henrique Pacheco, Hugo Zuin, Igor Costa, João Ehlers e Leonardo Xavier
 area: Back-end
 substitui: —
 substituida-por: —

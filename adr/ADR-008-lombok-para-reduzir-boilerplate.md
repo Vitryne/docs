@@ -1,10 +1,10 @@
 ---
 id: ADR-008
 titulo: Adotar Lombok para reduzir código repetitivo no backend
-status: Proposta
+status: Aceita
 data: 2026-09-13
-autor: Equipe
-decisores: « a confirmar »
+autor: João Ehlers
+decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
 substituida-por: —

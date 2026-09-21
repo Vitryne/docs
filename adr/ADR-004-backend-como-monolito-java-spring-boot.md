@@ -1,10 +1,10 @@
 ---
 id: ADR-004
 titulo: Backend como monólito único em Java 21 com Spring Boot 4
-status: Proposta
+status: Aceita
 data: 2026-09-13
 autor: Equipe
-decisores: « a confirmar »
+decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
 substituida-por: —

@@ -1,5 +1,5 @@
 ---
-id: ADR-023
+id: ADR-021
 titulo: Padrão de chamadas de API do app mobile com Axios e conversão de DTO centralizada
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-023 — Padrão de chamadas de API do app mobile com Axios e conversão de DTO centralizada
+# ADR-021 — Padrão de chamadas de API do app mobile com Axios e conversão de DTO centralizada
 
 ## Contexto e problema
 
@@ -52,7 +52,7 @@ concentra a URL base, o timeout e o interceptor de erro.
 
 Cada recurso do back tem um arquivo na pasta `Api` do domínio que o usa, com os tipos do DTO e do
 app na pasta `Types` do mesmo domínio. O arquivo leva o nome do recurso em inglês, em camelCase e
-com extensão `.ts`, conforme a ADR-022 — por exemplo, `cart.ts` para o carrinho.
+com extensão `.ts`, conforme a ADR-020 — por exemplo, `cart.ts` para o carrinho.
 
 Dentro do arquivo:
 

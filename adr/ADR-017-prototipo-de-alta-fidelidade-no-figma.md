@@ -1,5 +1,5 @@
 ---
-id: ADR-019
+id: ADR-017
 titulo: Protótipo no Figma como fonte da verdade da interface para o desenvolvimento
 status: Aceita
 data: 2026-09-13
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-019 — Protótipo no Figma como fonte da verdade da interface para o desenvolvimento
+# ADR-017 — Protótipo no Figma como fonte da verdade da interface para o desenvolvimento
 
 ## Contexto e problema
 
@@ -47,7 +47,7 @@ o sistema. Com duas fontes, a pergunta "qual é a tela certa?" não tem resposta
 
 ## Decisão
 
-O protótipo de alta fidelidade vive no Figma, no arquivo `Design System - Vitryne`, montado a partir dos componentes da biblioteca da ADR-018. Tela nova parte de componente
+O protótipo de alta fidelidade vive no Figma, no arquivo `Design System - Vitryne`, montado a partir dos componentes da biblioteca da ADR-016. Tela nova parte de componente
 existente; quando o componente não existe, ele nasce no Design System antes da tela.
 
 O protótipo é a fonte da verdade da interface para o desenvolvimento. Tela a implementar se lê

@@ -1,5 +1,5 @@
 ---
-id: ADR-021
+id: ADR-019
 titulo: Organização de pastas do app mobile por domínio, com telas e componentes em pasta própria
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-021 — Organização de pastas do app mobile por domínio, com telas e componentes em pasta própria
+# ADR-019 — Organização de pastas do app mobile por domínio, com telas e componentes em pasta própria
 
 ## Contexto e problema
 

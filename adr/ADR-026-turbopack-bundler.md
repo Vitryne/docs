@@ -1,5 +1,5 @@
 ---
-id: ADR-028
+id: ADR-026
 titulo: Turbopack como bundler de desenvolvimento e build
 status: Aceita
 data: 2026-09-20
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-028 — Turbopack como bundler de desenvolvimento e build
+# ADR-026 — Turbopack como bundler de desenvolvimento e build
 
 ## Contexto e problema
 

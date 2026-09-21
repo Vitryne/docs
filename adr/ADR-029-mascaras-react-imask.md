@@ -1,5 +1,5 @@
 ---
-id: ADR-031
+id: ADR-029
 titulo: Máscaras de campo com react-imask e estado local por campo
 status: Aceita
 data: 2026-09-20
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-031 — Máscaras de campo com react-imask e estado local por campo
+# ADR-029 — Máscaras de campo com react-imask e estado local por campo
 
 ## Contexto e problema
 

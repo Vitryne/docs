@@ -1,5 +1,5 @@
 ---
-id: ADR-026
+id: ADR-024
 titulo: Componentes de UI próprios em vez de biblioteca de componentes pronta
 status: Aceita
 data: 2026-09-20
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-026 — Componentes de UI próprios em vez de biblioteca de componentes pronta
+# ADR-024 — Componentes de UI próprios em vez de biblioteca de componentes pronta
 
 ## Contexto e problema
 
@@ -40,7 +40,7 @@ pequeno (duas pessoas no front) e o número de telas ainda é reduzido.
 
 ## Decisão
 
-Os componentes seguem o desenho publicado no Design System (ADR-018) e no protótipo (ADR-019),
+Os componentes seguem o desenho publicado no Design System (ADR-016) e no protótipo (ADR-017),
 que são a referência de aparência e de comportamento.
 
 Componentes de interface construídos manualmente em `src/components`, cada um como função
@@ -54,7 +54,7 @@ para inputs, botões, checkbox ou select; ícones vêm do pacote `react-icons`.
 
 - Controle total do HTML e das classes aplicadas em cada componente
 - Nenhuma dependência de tema externo para sobrescrever
-- Fácil de ajustar conforme os componentes evoluem no Design System (ADR-018)
+- Fácil de ajustar conforme os componentes evoluem no Design System (ADR-016)
 
 ### O que aceitamos em troca
 

@@ -1,5 +1,5 @@
 ---
-id: ADR-022
+id: ADR-020
 titulo: Nomes em inglês, com PascalCase em pastas e componentes e camelCase em arquivos comuns
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-022 — Nomes em inglês, com PascalCase em pastas e componentes e camelCase em arquivos comuns
+# ADR-020 — Nomes em inglês, com PascalCase em pastas e componentes e camelCase em arquivos comuns
 
 ## Contexto e problema
 
@@ -19,7 +19,7 @@ jeito: misturando português e inglês, maiúscula e minúscula, com e sem prefi
 encontrar arquivos e deixa o código inconsistente.
 
 Esta ADR define como pastas, arquivos e identificadores são nomeados. A organização das pastas
-está na ADR-021, e o nome dos estilos, na ADR-020.
+está na ADR-019, e o nome dos estilos, na ADR-018.
 
 ## Critérios de decisão
 
@@ -54,7 +54,7 @@ está na ADR-021, e o nome dos estilos, na ADR-020.
 - **Navegação:** componente de rotas `<Domínio>Routes` e tipos `<Domínio>StackParamList` —
   `DeliveryRoutes`, `DeliveryStackParamList`
 - **Funções e variáveis:** camelCase
-- **Estilos:** minúsculo com `_`, conforme a ADR-020
+- **Estilos:** minúsculo com `_`, conforme a ADR-018
 - **Extensão:** `.tsx` para arquivos com JSX e para `styles.tsx`; `.ts` para o resto
 
 ## Consequências

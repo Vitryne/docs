@@ -1,5 +1,5 @@
 ---
-id: ADR-015
+id: ADR-013
 titulo: Padronizar o ambiente local com Docker e Docker Compose
 status: Aceita
 data: 2026-09-13
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-015 — Padronizar o ambiente local com Docker e Docker Compose
+# ADR-013 — Padronizar o ambiente local com Docker e Docker Compose
 
 ## Contexto e problema
 

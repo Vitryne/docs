@@ -1,10 +1,10 @@
 ---
 id: ADR-012
 titulo: Liberar CORS para qualquer origem durante o desenvolvimento
-status: Proposta
+status: Aceita
 data: 2026-09-13
 autor: Equipe
-decisores: « a confirmar »
+decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
 substituida-por: —

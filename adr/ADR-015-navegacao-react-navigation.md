@@ -1,5 +1,5 @@
 ---
-id: ADR-017
+id: ADR-015
 titulo: Navegação do app mobile com React Navigation em vez de Expo Router
 status: Aceita
 data: 2026-09-19
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-017 — Navegação do app mobile com React Navigation em vez de Expo Router
+# ADR-015 — Navegação do app mobile com React Navigation em vez de Expo Router
 
 ## Contexto e problema
 

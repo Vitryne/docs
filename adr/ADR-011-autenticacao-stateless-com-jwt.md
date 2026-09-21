@@ -1,10 +1,10 @@
 ---
 id: ADR-011
 titulo: Autenticação stateless com JWT e filtro do Spring Security
-status: Proposta
+status: Aceita
 data: 2026-09-13
 autor: Equipe
-decisores: « a confirmar »
+decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
 substituida-por: —
