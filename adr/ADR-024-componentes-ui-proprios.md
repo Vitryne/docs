@@ -48,6 +48,17 @@ Componentes de interface construídos manualmente em `src/components`, cada um c
 tema (`bg-primary`, `text-text-secondary`, `border-border` etc.). Nenhum componente de terceiros
 para inputs, botões, checkbox ou select; ícones vêm do pacote `react-icons`.
 
+**Organização dentro de `src/components`:**
+
+- Componentes reutilizáveis em mais de um lugar (`Button`, `Input`, `Checkbox`, `SelectUf`,
+  `MaskedInput`, `ButtonGoogle`) ficam soltos na raiz de `src/components`.
+- Componentes usados apenas por uma página ou fluxo específico ficam agrupados em uma subpasta
+  de `src/components` com o nome daquela página/fluxo, e todos os componentes que pertencem a ela
+  ficam dentro dessa subpasta. Exemplo: `src/components/steps-register/` reúne os componentes
+  exclusivos do wizard de cadastro.
+- Se um componente de subpasta passar a ser necessário em outra página, ele sobe para a raiz de
+  `src/components`.
+
 ## Consequências
 
 ### O que ganhamos
@@ -68,13 +79,15 @@ para inputs, botões, checkbox ou select; ícones vêm do pacote `react-icons`.
 ## Validação
 
 Novas telas devem reaproveitar os componentes existentes em `src/components` antes de escrever
-HTML solto; qualquer componente de UI de terceiros para inputs, botões ou seleção entra apenas
+HTML solto; componente que só uma página usa vai para a subpasta dessa página, não para a raiz de
+`src/components`; qualquer componente de UI de terceiros para inputs, botões ou seleção entra apenas
 mediante nova ADR.
 
 ## Evidências
 
 - `frontend/src/components/button.tsx`, `input.tsx`, `checkbox.tsx`, `select-uf.tsx`,
   `masked-input.tsx`, `button-google.tsx`
+- `frontend/src/components/steps-register/` — subpasta com os componentes exclusivos do cadastro
 - `frontend/package.json` — `react-icons`, sem `@radix-ui/*`, `@mui/material` ou `@chakra-ui/*`
 - ETI-170 Criar tela de Login e a base de componentes reutilizáveis
 - ETI-206 Aplicando máscaras e tipos de campo no cadastro do lojista
