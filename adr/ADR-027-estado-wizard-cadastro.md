@@ -68,7 +68,7 @@ de existir integração real com o backend.
 
 - `frontend/src/pages/register.tsx`
 - `frontend/src/components/steps-register/step-store.tsx`
-- `frontend/src/components/steps-register/sidebar-register.tsx`
+- `frontend/src/components/sidebar-register.tsx`
 - ETI-171 Criar etapa de dados da loja no cadastro
 - ETI-198 Criar sidebar da tela de registro
 - ETI-206 Aplicando máscaras e tipos de campo no cadastro do lojista
