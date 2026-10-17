@@ -4,7 +4,7 @@ titulo: Agrupar em subpasta de src/components os componentes exclusivos de uma p
 status: Proposta
 data: 2026-10-15
 autor: Henrique Pacheco
-decisores: « a confirmar »
+decisores: Gabriel Rodrigues e Henrique Pacheco
 area: Front-end
 substitui: —
 substituida-por: —
