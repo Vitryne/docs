@@ -1,0 +1,10 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  governanca:
+    uses: vitryne/.github/.github/workflows/governance.yml@main
