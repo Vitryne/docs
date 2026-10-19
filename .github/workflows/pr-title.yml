@@ -1,9 +1,0 @@
-name: Validar título do PR
-
-on:
-  pull_request:
-    types: [opened, edited, synchronize, reopened]
-
-jobs:
-  validar:
-    uses: vitryne/.github/.github/workflows/pr-title.yml@main
