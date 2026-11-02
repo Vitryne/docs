@@ -52,7 +52,7 @@ por isso não aparece no índice.
 | [ADR-022](ADR-022-escolha-do-expo-mobile.md) | Base do app mobile com Expo em vez de React Native CLI | Aceita | Mobile |
 | [ADR-023](ADR-023-icones-svg-mobile.md) | Ícones do app mobile com @expo/vector-icons e SVG próprio, sem ícones em PNG | Aceita | Mobile |
 | [ADR-024](ADR-024-componentes-ui-proprios.md) | Componentes de UI próprios em vez de biblioteca de componentes pronta | Aceita | Front-end |
-| [ADR-025](ADR-025-convencao-pr-ownership-ecossistema.md) | Convenção de PR e ownership compartilhados com o ecossistema Vitryne | Aceita | Front-end |
+| [ADR-025](ADR-025-convencao-pr-ownership-ecossistema.md) | Convenção de PR e ownership compartilhados com o ecossistema Vitryne | Substituída por ADR-034 | Front-end |
 | [ADR-026](ADR-026-turbopack-bundler.md) | Turbopack como bundler de desenvolvimento e build | Aceita | Front-end |
 | [ADR-027](ADR-027-estado-wizard-cadastro.md) | Estado do cadastro em etapas controlado localmente por índice | Aceita | Front-end |
 | [ADR-028](ADR-028-tokens-tema-tailwind-v4.md) | Tokens de tema no Tailwind CSS v4 via @theme no CSS global | Aceita | Front-end |
@@ -60,8 +60,11 @@ por isso não aparece no índice.
 | [ADR-030](ADR-030-cerimonias-e-artefatos-de-sprint.md) | Cerimônias do time e artefatos que cada uma produz | Aceita | Governança |
 | [ADR-031](ADR-031-onde-cada-artefato-vive.md) | Um papel por ferramenta para decidir onde cada artefato do projeto vive | Aceita | Governança |
 | [ADR-032](ADR-032-lideranca-por-frente-tecnica.md) | Liderança por frente técnica, com um integrante coringa e papéis de processo acumulados | Aceita | Governança |
+| [ADR-033](ADR-033-camada-de-integracao-do-frontend-service-e-interfaces.md) | Separar a integração do front-end com a API em src/service e os contratos de dados em src/interfaces | Aceita | Front-end |
+| [ADR-034](ADR-034-governanca-e-qualidade-de-pr-por-workflows-reutilizaveis-no-frontend.md) | Validar PRs do front-end com workflows reutilizáveis de governança e qualidade e dono de código por time | Aceita | Front-end |
+| [ADR-035](ADR-035-deploy-do-frontend-na-vercel-por-github-actions.md) | Publicar o front-end na Vercel por GitHub Actions, com ambientes de preview, homologação e produção | Aceita | Front-end |
 
-Próximo ID livre: **ADR-033**.
+Próximo ID livre: **ADR-036**.
 
 
 ## Fila de decisões ainda não registradas
@@ -74,9 +77,9 @@ Próximo ID livre: **ADR-033**.
 | Cache | Redis aparece na stack divulgada no `docs/README.md` e não existe no `pom.xml`; decidir se entra, onde e com que política de invalidação | Regulamento, requisito (d) |
 | Websocket | Exigência do regulamento: pelo menos um caso de uso; falta escolher qual — acompanhamento de pedido é o candidato natural | Regulamento, requisito (e) |
 | Integração de pagamento | Exigência do regulamento em ambiente de homologação; gateway a escolher, com PIX previsto no produto | Regulamento, requisito (f) |
-| Plataforma de deploy | Exigência do regulamento, plataforma a critério do time. A ADR-021 já cita o Render como destino do back-end, sem decisão registrada | Regulamento, requisito (g) |
+| Plataforma de deploy do back-end | O front-end publica na Vercel (ADR-035). Falta o back-end: a ADR-021 já cita o Render como destino, sem decisão registrada | Regulamento, requisito (g) |
 | Estratégia de testes automatizados | Exigência do regulamento: unitários e de integração. Hoje há apenas o teste de contexto do Spring, e nem o front nem o mobile têm teste | ETI-123, ETI-159, ETI-160 |
-| Integração contínua | O CI valida só o título do PR. Decidir o que roda a cada mudança: build, teste, lint | ADR-003, ADR-025 |
+| Integração contínua | No front-end há governança e qualidade por workflows reutilizáveis (ADR-034). Falta confirmar o que o `node-quality.yml` executa, incluir teste automatizado e cobrir back-end e mobile | ADR-003, ADR-034 |
 | Versionamento da API | Prefixo de versão e política de mudança incompatível; hoje os endpoints não têm versão | ADR-007 |
 | Paginação e ordenação | `listProducts` devolve a lista inteira; catálogo não escala assim | `ProductController.java` |
 | Formato de erro padronizado | Avaliar `ProblemDetail` (RFC 7807) no lugar do `Map` montado à mão | ADR-009 |
@@ -100,7 +103,13 @@ Próximo ID livre: **ADR-033**.
 
 Correções a fazer nos repositórios, encontradas durante a consolidação das ADRs.
 
-« nenhuma registrada no momento »
+- A Evidência da ADR-014 cita `frontend/src/hooks/use-http.ts`, mas o arquivo está em `frontend/src/components/hooks/use-http.ts`. A ADR-014 não se edita; o caminho correto consta na ADR-033.
+- ADR-014: o caminho do `use-http.ts` na Evidência está errado, e a versão do `next` citada (15.5.18) está velha (15.5.28 no `package.json`). A lista de páginas cita 4 e o repositório tem 17.
+- ADR-024: os componentes citados em `frontend/src/components/` estão em `frontend/src/components/ui/`, e o `button.tsx` não existe (há `button-primary.tsx`, `button-secondary.tsx` e `button-google.tsx`).
+- ADR-026: a versão do `next` citada na Evidência (15.5.18) está velha.
+- ADR-027: o cadastro tem 5 etapas, não 6 (sem o primeiro produto, e em outra ordem), e o `Component` é renderizado sem props, com o `onNext` no `StepFooter`. Os caminhos de evidência (`steps-register/`, `sidebar-register.tsx`) não existem; os arquivos estão em `components/features/store-register/`.
+- ADR-028: a validação "nenhuma cor hex fora do `global.css`" é violada em `frontend/src/pages/login.tsx:26` (`to-[#3B0F63]/90`). O `--font-mono` (Geist Mono) existe no `@theme` e a ADR não o cita.
+- ADR-029: o `MaskedInput` está em `frontend/src/components/ui/masked-input.tsx`, e o `StepStore` em `frontend/src/components/features/store-register/components/steps/step-store.tsx`, não nos caminhos da Evidência.
 
 ## Referências
 
