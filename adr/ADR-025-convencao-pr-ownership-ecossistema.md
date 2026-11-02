@@ -1,13 +1,13 @@
 ---
 id: ADR-025
 titulo: Convenção de PR e ownership compartilhados com o ecossistema Vitryne
-status: Aceita
+status: Substituída
 data: 2026-09-20
 autor: Henrique Pacheco
 decisores: Gabriel Rodrigues e Henrique Pacheco
 area: Front-end
 substitui: —
-substituida-por: —
+substituida-por: ADR-034
 ---
 
 # ADR-025 — Convenção de PR e ownership compartilhados com o ecossistema Vitryne

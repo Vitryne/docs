@@ -1,13 +1,13 @@
 ---
 id: ADR-006
 titulo: PostgreSQL como banco único com schema versionado em Flyway
-status: Aceita
+status: Substituída
 data: 2026-09-13
 autor: Equipe
 decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
-substituida-por: —
+substituida-por: ADR-043
 ---
 
 # ADR-006 — PostgreSQL como banco único com schema versionado em Flyway
