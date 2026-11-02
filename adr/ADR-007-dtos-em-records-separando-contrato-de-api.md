@@ -1,13 +1,13 @@
 ---
 id: ADR-007
 titulo: Separar contrato da API das entidades JPA usando DTOs em records
-status: Aceita
+status: Substituída
 data: 2026-09-13
 autor: Equipe
 decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
-substituida-por: —
+substituida-por: ADR-037
 ---
 
 # ADR-007 — Separar contrato da API das entidades JPA usando DTOs em records

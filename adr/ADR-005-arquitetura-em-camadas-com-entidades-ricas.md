@@ -1,13 +1,13 @@
 ---
 id: ADR-005
 titulo: Organizar o backend em camadas técnicas com regra de negócio nas entidades
-status: Aceita
+status: Substituída
 data: 2026-09-13
 autor: João Ehlers
 decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
-substituida-por: —
+substituida-por: ADR-036
 ---
 
 # ADR-005 — Organizar o backend em camadas técnicas com regra de negócio nas entidades
