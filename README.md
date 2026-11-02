@@ -47,12 +47,12 @@ Documentação sobre a estrutura e organização técnica da plataforma.
 | Integrante | Cargo | Áreas |
 |---|---|---|
 | Bruno Abrahim | Membro | Mobile |
-| Gabriel Rodrigues | Membro | Frontend · Documentação |
-| Henrique Pacheco Alves | Membro | Frontend · Backend |
-| Hugo Zuin | Co-owner | Frontend · Documentação |
-| Igor Costa | Membro | Backend · Frontend |
-| João Ehlers | Membro | Backend |
-| Leonardo Xavier | Líder | Mobile · Documentação |
+| Gabriel Rodrigues | Membro | Frontend |
+| Henrique Pacheco Alves | Líder Técnico Frontend | Frontend · Backend |
+| Hugo Zuin | Product Owner | Documentação · Governança · UX/UI|
+| Igor Costa | Membro | Backend · Frontend · Documentação |
+| João Ehlers |  Líder Técnico Backend | Backend |
+| Leonardo Xavier |  Líder Técnico Mobile | Mobile · Documentação |
 
 ---
 
@@ -69,6 +69,6 @@ Documentação sobre a estrutura e organização técnica da plataforma.
 
 ## Protótipo
 
-O protótipo de alta fidelidade:
-
-[**Baixe o protótipo e execute em seu navegador**](https://drive.google.com/file/d/18vCB8ZVGez_6RWEEpxrDNnAq6Gj8Fkkc/view?usp=drive_link)
+O protótipo de alta fidelidade e design system:
+[**Acesse o protótipo no Figma**](https://www.figma.com/design/36njOKWxqVbjBS5M8ZAZ3f/Prot%C3%B3tipo---Vitryne?node-id=0-1&t=nBsrNSOUpZPBHwgv-1)
+[**Acesse o Design System do projeto no Figma**](https://www.figma.com/design/aS6KcYO6MWteEDkmedZPBa/Design-System---Vitryne?node-id=0-1&t=XlyaSszXj0WDKTp0-1)
