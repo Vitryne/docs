@@ -1,13 +1,13 @@
 ---
 id: ADR-027
 titulo: Estado do cadastro em etapas controlado localmente por índice
-status: Aceita
+status: Substituída
 data: 2026-09-20
 autor: Henrique Pacheco
 decisores: Gabriel Rodrigues e Henrique Pacheco
 area: Front-end
 substitui: —
-substituida-por: —
+substituida-por: ADR-052
 ---
 
 # ADR-027 — Estado do cadastro em etapas controlado localmente por índice
