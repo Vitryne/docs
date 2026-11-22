@@ -28,7 +28,7 @@ por isso não aparece no índice.
 
 | ID | Decisão | Status | Área |
 |---|---|---|---|
-| [ADR-001](ADR-001-registro-de-decisoes-em-adrs-versionadas.md) | Registrar decisões arquiteturais como ADRs versionadas no repositório | Aceita | Governança |
+| [ADR-001](ADR-001-registro-de-decisoes-em-adrs-versionadas.md) | Registrar decisões arquiteturais como ADRs versionadas no repositório | Substituída por ADR-048 | Governança |
 | [ADR-002](ADR-002-quatro-repositorios-por-aplicacao.md) | Separar o projeto em quatro repositórios por aplicação sob uma organização GitHub | Aceita | Governança |
 | [ADR-003](ADR-003-processo-de-desenvolvimento-e-estrategia-de-branches.md) | Processo de desenvolvimento, estratégia de branches e definition of done | Aceita | Governança |
 | [ADR-004](ADR-004-backend-como-monolito-java-spring-boot.md) | Backend como monólito único em Java 21 com Spring Boot 4 | Aceita | Back-end |
@@ -69,31 +69,34 @@ por isso não aparece no índice.
 | [ADR-039](ADR-039-tratamento-de-erro-centralizado-com-formatos-de-resposta-atuais.md) | Centralizar o tratamento de erro em um RestControllerAdvice, registrando os formatos de resposta que existem hoje | Aceita | Back-end |
 | [ADR-040](ADR-040-documentacao-da-api-com-openapi-e-swagger.md) | Documentar a API com OpenAPI e Swagger UI, gerados pelo springdoc a partir do código | Aceita | Back-end |
 | [ADR-041](ADR-041-controle-de-concorrencia-otimista-no-estoque.md) | Controlar a concorrência no estoque com bloqueio otimista por versão | Aceita | Back-end |
-| [ADR-042](ADR-042-ci-do-backend-governanca-por-workflow-reutilizavel.md) | Validar PRs do back-end com o workflow de governança reutilizável e dono de código por time | Aceita | Back-end |
+| [ADR-042](ADR-042-ci-do-backend-governanca-por-workflow-reutilizavel.md) | Validar PRs do back-end com o workflow de governança reutilizável e dono de código por time | Substituída por ADR-044 | Back-end |
 | [ADR-043](ADR-043-padrao-de-nome-das-migrations-flyway.md) | PostgreSQL com schema versionado em Flyway e versão das migrations em data e hora | Aceita | Back-end |
+| [ADR-044](ADR-044-verificacao-de-build-e-testes-do-backend-por-workflow-reutilizavel.md) | Verificar build e testes de todo PR do back-end com o workflow reutilizável java-quality | Aceita | Back-end |
+| [ADR-045](ADR-045-verificacao-de-lint-tipos-e-formatacao-do-mobile.md) | Verificar lint, tipos e formatação de todo PR do mobile, com as regras do React Compiler como aviso | Aceita | Mobile |
+| [ADR-046](ADR-046-hook-de-pre-commit-com-husky-e-lint-staged.md) | Formatar e corrigir o lint a cada commit com husky e lint-staged no front-end e no mobile | Aceita | Infraestrutura |
+| [ADR-047](ADR-047-protecao-de-branches-por-rulesets-e-politica-de-bypass.md) | Proteger main e dev por rulesets em todos os repositórios, com dev como branch padrão e bypass restrito aos administradores | Aceita | Governança |
+| [ADR-050](ADR-048-adrs-na-pasta-adr-do-repositorio-docs.md) | Manter as ADRs na pasta ADR do repositório docs, com as convenções da ADR-001 | Aceita | Governança |
 
-Próximo ID livre: **ADR-044**.
-
+Próximo ID livre: **ADR-049**.
 
 ## Fila de decisões ainda não registradas
 
 ### Decisões que o projeto ainda não tomou
 
 | Tema | Por que precisa de decisão | Referência |
-|---|---|---|
+| --- | --- | --- |
 | Escala de 1M escritas para 2M leituras | Exigência do regulamento; define estratégia de cache, réplica de leitura e índices | Regulamento, requisito (d) |
-| Cache | Redis aparece na stack divulgada no `docs/README.md` e não existe no `pom.xml`; decidir se entra, onde e com que política de invalidação | Regulamento, requisito (d) |
+| Cache | Redis aparecia na stack do `docs/README.md`, corrigida na ETI-390, e não existe no `pom.xml`; decidir se entra, onde e com que política de invalidação | Regulamento, requisito (d) |
 | Websocket | Exigência do regulamento: pelo menos um caso de uso; falta escolher qual — acompanhamento de pedido é o candidato natural | Regulamento, requisito (e) |
 | Integração de pagamento | Exigência do regulamento em ambiente de homologação; gateway a escolher, com PIX previsto no produto | Regulamento, requisito (f) |
 | Plataforma de deploy do back-end | O front-end publica na Vercel (ADR-035). Falta o back-end: a ADR-021 já cita o Render como destino, sem decisão registrada | Regulamento, requisito (g) |
-| Estratégia de testes automatizados | Exigência do regulamento: unitários e de integração. O back-end tem testes unitários e de contexto Spring, sem teste de integração com banco, e eles não rodam no CI (ADR-042). Front e mobile não têm teste | ETI-123, ETI-159, ETI-160 |
-| Integração contínua | No front-end há governança e qualidade por workflows reutilizáveis (ADR-034). Falta confirmar o que o `node-quality.yml` executa, incluir teste automatizado e cobrir back-end e mobile | ADR-003, ADR-034 |
+| Estratégia de testes automatizados | Exigência do regulamento: unitários e de integração. O back-end tem testes unitários e de contexto Spring, que rodam no CI em todo PR (ADR-044), mas nenhum teste de integração com banco. Front e mobile não têm teste | ETI-123, ETI-159, ETI-160, ETI-388 |
 | Versionamento da API | Prefixo de versão e política de mudança incompatível; hoje os endpoints não têm versão, e o Swagger rotula a API como `v1-mvp` | ADR-037, ADR-040 |
 | Paginação e ordenação | `listProducts` devolve a lista inteira; catálogo não escala assim | `ProductController.java` |
 | Formato de erro padronizado | O corpo de erro tem quatro formatos, e só `InvalidInputException` usa `ProblemDetail` (RFC 7807). Decidir um formato único | ADR-039 |
 | Geolocalização e busca por proximidade | Função central do produto, sem decisão de tecnologia nem de modelagem | Casos de uso |
 | CORS no back-end | O gatilho da ADR-012 disparou com a entrada do JWT (ADR-038), e o `CorsConfig` ainda libera `allowedOrigins("*")`. Decidir entre manter com o risco aceito ou restringir por ambiente | ADR-012, ADR-038 |
-| Distribuição da chave privada do JWT | O `app.key` não é versionado e nada documenta como cada pessoa o obtém nem como chega ao ambiente publicado | ADR-038 |
+| Distribuição da chave privada do JWT | O par de chaves de desenvolvimento está versionado em `backend/src/main/resources/keys/dev/` até o deploy do back-end. Falta decidir como a chave de produção chega ao ambiente publicado e trocar o par que está no repositório | ADR-038, ETI-387 |
 | Observabilidade | Hoje há log em controller; falta decidir formato, nível e destino | — |
 | Valores do Design System no código | Como manter cor, espaçamento e raio iguais entre o Figma, o `@theme` do `global.css` e o `commonStyles.ts` do mobile, sem detecção automática de divergência | ADR-016, ADR-018, ADR-028 |
 | Ligação entre componente do Figma e componente do código | Hoje a correspondência é manual e não é verificável | ADR-016 |
@@ -102,8 +105,6 @@ Próximo ID livre: **ADR-044**.
 | Acessibilidade | Contraste, alvo de toque e leitor de tela sem critério; `SelectUf` é um dropdown próprio sem `role`, `aria-*` nem navegação por teclado | ADR-024 |
 | Expiração e revogação de token | A expiração padrão do código é 3600 s, sem decisão registrada. Falta refresh token e o que fazer para invalidar antes do vencimento | ADR-038 |
 | Publicação do app iOS | A ADR-022 entrega só Android por APK; o iOS fica como melhoria futura, sem decisão de quando | ADR-022 |
-| Licenciamento do código | `backend` e `frontend` têm LICENSE MIT; `mobile`, `docs` e `.github` não têm licença nenhuma | repositórios |
-| Política de uso de IA no desenvolvimento | `AGENTS.md`, `CLAUDE.md` e `.claude/settings.json` existem só no `mobile`; o regulamento restringe uso abusivo de IA e de código de terceiros | `mobile/AGENTS.md` |
 
 ### Decisões já implementadas que ainda não têm ADR
 
