@@ -4,7 +4,7 @@ titulo: Verificar build e testes de todo PR do back-end com o workflow reutiliz�
 status: Aceita
 data: 2026-11-22
 autor: Gabriel Rodrigues
-decisores: Gabriel Rodrigues
+decisores: Gabriel Rodrigues e João Ehlers
 area: Back-end
 substitui: ADR-042
 substituida-por: —
