@@ -1,6 +1,6 @@
 ---
 id: ADR-050
-titulo: Guardar o token do app no armazenamento seguro do sistema com expo-secure-store, e no localStorage quando o app roda na web
+titulo: Guardar o token do app no armazenamento seguro do sistema com expo-secure-store
 status: Aceita
 data: 2026-11-22
 autor: Gabriel Rodrigues
@@ -19,9 +19,7 @@ cadastro, e que as demais rotas exigem o token no cabeçalho `Authorization`. A 
 as chamadas do app numa única instância do Axios. Com a integração do login e do cadastro do
 cliente (ETI-321), o app passou a precisar guardar o token no aparelho.
 
-O app é distribuído para Android (ADR-022) e, por usar Expo, também roda no navegador durante o
-desenvolvimento. Um token guardado sem proteção no aparelho pode ser lido por outro processo com
-acesso ao armazenamento do app ou por um backup.
+O app é distribuído para Android (ADR-022).
 
 A pergunta é onde o app guarda o token e como ele chega às requisições.
 
@@ -29,25 +27,24 @@ A pergunta é onde o app guarda o token e como ele chega às requisições.
 
 - Token protegido no aparelho, sem ficar em texto puro
 - Disponível para todas as chamadas pela instância central do Axios
-- Funcionar também na versão web usada no desenvolvimento
 - Nenhuma mudança no back-end
 
 ## Alternativas consideradas
 
-1. **`expo-secure-store` no Android e no iOS, que usa o armazenamento seguro do sistema, com
-   `localStorage` na web e interceptores na instância central do Axios** — escolhida.
+1. **`expo-secure-store`, que guarda o valor criptografado com chaves protegidas pelo sistema
+   (Keystore no Android, Keychain no iOS), com interceptores na instância central do Axios** —
+   escolhida.
 2. **`AsyncStorage`** — *perdeu porque:* grava em texto puro, sem criptografia, no armazenamento do
    app.
 3. **Guardar o token só em memória (estado do React)** — *perdeu porque:* o token se perde quando o
    app é fechado.
-4. **`expo-secure-store` em todas as plataformas** — *perdeu porque:* a biblioteca não funciona no
-   navegador, e a versão web do app quebraria.
 
 ## Decisão
 
 O módulo `src/Shared/Api/tokenStorage.ts` concentra o token, na chave `accessToken`, com três
-funções assíncronas: `saveToken`, `getToken` e `clearToken`. No Android e no iOS, elas usam o
-`expo-secure-store`; quando `Platform.OS` é `web`, usam o `localStorage`.
+funções assíncronas, `saveToken`, `getToken` e `clearToken`, que usam o `expo-secure-store`. O
+arquivo também tem um desvio para o `localStorage` quando `Platform.OS` é `web`, que vem do suporte
+web do Expo; o projeto não distribui versão web, e esse caminho não é usado no Android nem no iOS.
 
 O login (`loginForm.ts`) e o cadastro do cliente (`useRegister.ts`) chamam `saveToken` depois da
 resposta de sucesso. A instância central do Axios (`src/Shared/Api/apiConfig.ts`) tem dois
@@ -68,8 +65,8 @@ interceptores:
 
 ### O que aceitamos em troca
 
-- Na versão web, o token fica no `localStorage`, que pode ser lido por qualquer script da página;
-  essa versão é usada só no desenvolvimento
+- O desvio para o `localStorage` continua no código sem uso, e pode sair junto com o suporte web do
+  Expo
 - Não há renovação do token (ver "Expiração e revogação de token" na fila)
 - Por enquanto, o token salvo é usado apenas nas requisições: a sessão do cliente não é restaurada
   ao abrir o app, sair da conta não apaga o token, e nenhuma tela registra o tratador de 401
