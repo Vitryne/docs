@@ -15,17 +15,14 @@ substituida-por: —
 ## Contexto e problema
 
 A ADR-003 definiu o fluxo `main` para releases, `dev` para integração e uma branch por tarefa, com
-merge commit, uma aprovação e `push --force` bloqueado. Uma auditoria dos repositórios em novembro
-mostrou que a configuração não acompanhava o texto em quatro pontos:
+merge commit, uma aprovação e `push --force` bloqueado. Ao revisar a configuração dos repositórios
+em novembro, alguns pontos ainda não refletiam esse fluxo:
 
-- A branch padrão era a `main` nos três repositórios de código, embora a documentação dissesse
-  `dev`. Houve PRs de tarefa abertos contra a `main` por engano no mobile
+- A branch padrão dos repositórios de código era a `main`, enquanto o fluxo parte da `dev`
 - A `main` do `.github`, de onde todos os repositórios consomem os workflows reutilizáveis, não
-  exigia PR: uma alteração direta ali mudava o CI de todos os repositórios sem verificação
-- A regra de uma aprovação existia nos rulesets, mas o bypass dos administradores era usado sem
-  critério escrito: 20 de 57 PRs mergeados entre 20/10 e 17/11 não tinham review
-- Ao trocar a branch padrão para `dev`, o ruleset da `main` do back-end, que tinha como alvo a opção
-  "Default branch", passou a proteger a `dev` e deixou a `main` sem regra até ser corrigido
+  exigia PR
+- Os administradores podiam ignorar as regras dos rulesets, sem critério escrito para isso
+- Um ruleset com alvo "Default branch" muda de branch protegida quando a branch padrão muda
 
 A ADR-003 também proíbe reescrever qualquer histórico já enviado, o que impede corrigir uma
 mensagem de commit ou incluir um arquivo esquecido na própria branch antes do review.
@@ -62,6 +59,11 @@ que situação. Esta ADR complementa a ADR-003, que continua valendo no restante
 **Rulesets.** Cada repositório de código tem os rulesets `protecao-dev` e `protecao-main`, com o
 alvo definido pelo nome da branch (`refs/heads/dev` e `refs/heads/main`), nunca pela opção
 "Default branch". As regras são:
+
+**Donos de código.** O `frontend`, o `backend`, o `mobile` e o `docs` têm um `.github/CODEOWNERS`
+com o time da área e o time de administradores como donos de todos os arquivos (`@Vitryne/frontend`,
+`@Vitryne/backend`, `@Vitryne/mobile` e `@Vitryne/docs`, sempre com `@Vitryne/admin`). A aprovação
+exigida pelos rulesets precisa vir de um desses donos.
 
 - Exclusão da branch e force push bloqueados
 - PR obrigatório, com 1 aprovação de code owner, aprovação descartada a cada novo push, aprovação
@@ -114,3 +116,4 @@ checks descritos acima para cada repositório, e a branch padrão do `frontend`,
 - `.github/CONTRIBUTING.md` — seções de bypass, force push e comandos com cuidado
 - ETI-381 — configurações da organização no GitHub
 - ADR-003 — processo de desenvolvimento, que esta ADR complementa
+- `.github/CODEOWNERS` do `frontend`, do `backend`, do `mobile` e do `docs` - dono de código por time

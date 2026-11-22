@@ -75,9 +75,10 @@ por isso não aparece no índice.
 | [ADR-045](ADR-045-verificacao-de-lint-tipos-e-formatacao-do-mobile.md) | Verificar lint, tipos e formatação de todo PR do mobile, com as regras do React Compiler como aviso | Aceita | Mobile |
 | [ADR-046](ADR-046-hook-de-pre-commit-com-husky-e-lint-staged.md) | Formatar e corrigir o lint a cada commit com husky e lint-staged no front-end e no mobile | Aceita | Infraestrutura |
 | [ADR-047](ADR-047-protecao-de-branches-por-rulesets-e-politica-de-bypass.md) | Proteger main e dev por rulesets em todos os repositórios, com dev como branch padrão e bypass restrito aos administradores | Aceita | Governança |
-| [ADR-050](ADR-048-adrs-na-pasta-adr-do-repositorio-docs.md) | Manter as ADRs na pasta ADR do repositório docs, com as convenções da ADR-001 | Aceita | Governança |
+| [ADR-048](ADR-048-adrs-na-pasta-adr-do-repositorio-docs.md) | Manter as ADRs na pasta ADR do repositório docs, com as convenções da ADR-001 | Aceita | Governança |
+| [ADR-049](ADR-049-licenca-mit-nos-repositorios.md) | Licenciar os repositórios da organização sob MIT, com documentos de terceiros fora da licença | Aceita | Governança |
 
-Próximo ID livre: **ADR-049**.
+Próximo ID livre: **ADR-050**.
 
 ## Fila de decisões ainda não registradas
 
@@ -120,7 +121,6 @@ Correções a fazer nos repositórios, encontradas durante a consolidação das 
 - ADR-010: as evidências citam `backend/src/main/java/com/vitryne/api/entity/`; as entidades ficam agora dentro de cada funcionalidade (ADR-036).
 - ADR-012: o gatilho de revisão (entrada do JWT) disparou e a ADR segue sem substituição. Ver a fila de decisões.
 - ADR-013: o `backend/.env.example` traz `KEY_DB_PASSWORD` com valor preenchido, contra a regra "sem valor". Zerar o valor no repositório.
-- ADR-041: nenhuma migration cria a coluna `version` na tabela `stock`, e `Stock` tem `@Version`. Confirmar no banco; com `ddl-auto=none`, a escrita pode falhar.
 - ADR-043: três migrations fogem do padrão — as cinco `V17814...__ETI-127-*` (versão em milissegundos), `V20261024230000__expand_client_and_store_registration.sql` (sem ETI) e `V20261031233400__ETI-267-ALIGN_CART_MONEY_PRECISION.SQL` (extensão e descrição em maiúsculas).
 - ADR-014: o caminho do `use-http.ts` na Evidência está errado, e a versão do `next` citada (15.5.18) está velha (15.5.28 no `package.json`). A lista de páginas cita 4 e o repositório tem 17.
 - ADR-024: os componentes citados em `frontend/src/components/` estão em `frontend/src/components/ui/`, e o `button.tsx` não existe (há `button-primary.tsx`, `button-secondary.tsx` e `button-google.tsx`).

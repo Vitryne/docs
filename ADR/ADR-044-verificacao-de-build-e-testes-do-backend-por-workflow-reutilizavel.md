@@ -70,6 +70,9 @@ As credenciais do banco no workflow existem só durante a execução e não pert
 O check `qualidade / Qualidade` é obrigatório nos rulesets `protecao-dev` e `protecao-main` do
 back-end, junto com `governanca / Governança`.
 
+O `CODEOWNERS` do back-end continua com `@Vitryne/backend` e `@Vitryne/admin`, agora registrado na
+ADR-047.
+
 O workflow usa `mvn`, instalado no runner, e não o `./mvnw`: o wrapper existe no repositório, mas a
 pasta `.mvn/wrapper` não é versionada.
 

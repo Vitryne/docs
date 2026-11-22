@@ -1,7 +1,7 @@
 ---
 id: ADR-001
 titulo: Registrar decisões arquiteturais como ADRs versionadas no repositório
-status: Substituida
+status: Substituída
 data: 2026-09-13
 autor: Equipe
 decisores: Bruno Abrahim, Gabriel Rodrigues, Henrique Pacheco, Hugo Zuin, Igor Costa, João Ehlers e Leonardo Xavier
