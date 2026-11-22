@@ -132,6 +132,7 @@ Correções a fazer nos repositórios, encontradas durante a consolidação das 
 - ADR-027: o cadastro tem 5 etapas, não 6 (sem o primeiro produto, e em outra ordem), e o `Component` é renderizado sem props, com o `onNext` no `StepFooter`. Os caminhos de evidência (`steps-register/`, `sidebar-register.tsx`) não existem; os arquivos estão em `components/features/store-register/`.
 - ADR-028: a validação "nenhuma cor hex fora do `global.css`" é violada em `frontend/src/pages/login.tsx:26` (`to-[#3B0F63]/90`). O `--font-mono` (Geist Mono) existe no `@theme` e a ADR não o cita.
 - ADR-029: o `MaskedInput` está em `frontend/src/components/ui/masked-input.tsx`, e o `StepStore` em `frontend/src/components/features/store-register/components/steps/step-store.tsx`, não nos caminhos da Evidência.
+- ADR-041: a seção de alternativas diz que o bloqueio pessimista não foi avaliado; o checkout passou a usá-lo junto com o bloqueio otimista. Ver ADR-056.
 
 ## Referências
 
