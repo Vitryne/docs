@@ -81,7 +81,7 @@ por isso não aparece no índice.
 | [ADR-052](ADR-052-estado-e-validacao-do-cadastro-do-lojista-na-pagina.md) | Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper | Aceita | Front-end |
 | [ADR-053](ADR-053-bibliotecas-especializadas-para-componentes-complexos-do-painel.md) | Aceitar bibliotecas especializadas para componentes complexos do painel, mantendo próprios os componentes básicos | Aceita | Front-end |
 
-Próximo ID livre: **ADR-056**.
+Próximo ID livre: **ADR-057**.
 
 ## Fila de decisões ainda não registradas
 
@@ -130,7 +130,7 @@ Correções a fazer nos repositórios, encontradas durante a consolidação das 
 - ADR-029: o `MaskedInput` está em `frontend/src/components/ui/masked-input.tsx`, e o `StepStore` em `frontend/src/components/features/store-register/components/steps/step-store.tsx`, não nos caminhos da Evidência.
 - ADR-024: a Evidência diz que o front-end não usa `@radix-ui/*`; hoje usa o `@radix-ui/react-slider` nos filtros de pedidos, conforme a exceção da ADR-053.
 - ADR-028: os gráficos do painel escrevem as cores em hexadecimal nos componentes, iguais às do `@theme`. Ver ADR-053.
-- - ADR-033: as telas de dashboard, financeiro e categorias, o formulário de produto, o modal de nova categoria e a etapa de dados bancários importam os mocks direto, e não por um service.
+- ADR-033: as telas de dashboard, financeiro e categorias, o formulário de produto, o modal de nova categoria e a etapa de dados bancários importam os mocks direto, e não por um service.
 
 ## Referências
 

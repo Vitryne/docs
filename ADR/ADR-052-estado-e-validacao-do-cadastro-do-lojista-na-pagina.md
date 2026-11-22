@@ -1,5 +1,5 @@
 ---
-id: ADR-053
+id: ADR-052
 titulo: Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper
 status: Aceita
 data: 2026-11-22
@@ -10,7 +10,7 @@ substitui: ADR-027
 substituida-por: —
 ---
 
-# ADR-053 — Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper
+# ADR-052— Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper
 
 ## Contexto e problema
 

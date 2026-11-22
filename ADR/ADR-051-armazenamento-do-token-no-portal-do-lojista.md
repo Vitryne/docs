@@ -1,5 +1,5 @@
 ---
-id: ADR-052
+id: ADR-051
 titulo: Guardar o token do portal no localStorage quando o lojista pede para lembrar o dispositivo, e no sessionStorage nos demais casos
 status: Aceita
 data: 2026-11-22
@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-052 — Guardar o token do portal no localStorage quando o lojista pede para lembrar o dispositivo, e no sessionStorage nos demais casos
+# ADR-051 — Guardar o token do portal no localStorage quando o lojista pede para lembrar o dispositivo, e no sessionStorage nos demais casos
 
 ## Contexto e problema
 
