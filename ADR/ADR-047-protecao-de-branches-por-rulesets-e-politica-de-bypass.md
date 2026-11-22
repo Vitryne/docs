@@ -1,0 +1,119 @@
+---
+id: ADR-047
+titulo: Proteger main e dev por rulesets em todos os repositórios, com dev como branch padrão e bypass restrito aos administradores
+status: Aceita
+data: 2026-11-22
+autor: Gabriel Rodrigues
+decisores: Gabriel Rodrigues
+area: Governança
+substitui: —
+substituida-por: —
+---
+
+# ADR-047 — Proteger main e dev por rulesets em todos os repositórios, com dev como branch padrão e bypass restrito aos administradores
+
+## Contexto e problema
+
+A ADR-003 definiu o fluxo `main` para releases, `dev` para integração e uma branch por tarefa, com
+merge commit, uma aprovação e `push --force` bloqueado. Ao revisar a configuração dos repositórios
+em novembro, alguns pontos ainda não refletiam esse fluxo:
+
+- A branch padrão dos repositórios de código era a `main`, enquanto o fluxo parte da `dev`
+- A `main` do `.github`, de onde todos os repositórios consomem os workflows reutilizáveis, não
+  exigia PR
+- Os administradores podiam ignorar as regras dos rulesets, sem critério escrito para isso
+- Um ruleset com alvo "Default branch" muda de branch protegida quando a branch padrão muda
+
+A ADR-003 também proíbe reescrever qualquer histórico já enviado, o que impede corrigir uma
+mensagem de commit ou incluir um arquivo esquecido na própria branch antes do review.
+
+A pergunta é qual configuração de proteção vale em cada repositório, quem pode contorná-la e em
+que situação. Esta ADR complementa a ADR-003, que continua valendo no restante.
+
+## Critérios de decisão
+
+- A configuração efetiva precisa ser igual ao que está documentado
+- Nenhuma mudança chega à `main` ou à `dev` sem PR e sem os checks obrigatórios
+- Exceções existem, mas têm dono, situação e registro
+- Corrigir a própria branch antes do review não pode colocar em risco o trabalho de outra pessoa
+
+## Alternativas consideradas
+
+1. **Rulesets por repositório com alvo explícito pelo nome da branch, `dev` como branch padrão,
+   bypass só para administradores em PRs de CI e governança, e `--force-with-lease` permitido na
+   branch de tarefa antes do review** — escolhida.
+2. **Remover o bypass de todos** — *perdeu porque:* mudanças no próprio CI precisam ser validadas
+   em PR antes de existir quem as aprove com contexto; sem bypass, o time ficaria travado justamente
+   ao corrigir a esteira.
+3. **Manter o bypass livre para administradores** — *perdeu porque:* a regra de aprovação deixa de
+   valer na prática, e o histórico de PRs passa a contradizer a documentação.
+4. **Manter a proibição total de reescrever histórico enviado (ADR-003)** — *perdeu porque:* a
+   única forma de corrigir uma mensagem de commit ou um arquivo esquecido seria acumular commits de
+   correção, sujando o histórico que o merge commit preserva.
+
+## Decisão
+
+**Branch padrão.** `dev` é a branch padrão do `frontend`, do `backend` e do `mobile`. O `docs` e o
+`.github` não têm `dev` e usam a `main`.
+
+**Rulesets.** Cada repositório de código tem os rulesets `protecao-dev` e `protecao-main`, com o
+alvo definido pelo nome da branch (`refs/heads/dev` e `refs/heads/main`), nunca pela opção
+"Default branch". As regras são:
+
+**Donos de código.** O `frontend`, o `backend`, o `mobile` e o `docs` têm um `.github/CODEOWNERS`
+com o time da área e o time de administradores como donos de todos os arquivos (`@Vitryne/frontend`,
+`@Vitryne/backend`, `@Vitryne/mobile` e `@Vitryne/docs`, sempre com `@Vitryne/admin`). A aprovação
+exigida pelos rulesets precisa vir de um desses donos.
+
+- Exclusão da branch e force push bloqueados
+- PR obrigatório, com 1 aprovação de code owner, aprovação descartada a cada novo push, aprovação
+  exigida do último push e conversas resolvidas
+- Apenas merge commit como método de merge
+- Checks obrigatórios: `governanca / Governança` em todos; `qualidade / Qualidade` no front-end, no
+  back-end e no mobile; `qualidade / Formatação` no front-end e no mobile
+
+O `docs` tem as mesmas regras na `main`, com `governanca / Governança` como check. O `.github` exige
+PR, o check `governanca / Governança` e apenas merge commit, com 0 aprovações, porque é mantido por
+uma única pessoa.
+
+**Bypass.** Apenas os administradores da organização (Gabriel Rodrigues e Hugo Zuin) podem ignorar
+as regras, e somente em PRs de CI e governança. Quem usa o bypass comenta no PR o motivo.
+
+**Force push.** Continua bloqueado em `main` e `dev`. Na própria branch de tarefa, é permitido com
+`git push --force-with-lease`, e só enquanto o PR não recebeu review. Depois do review, correções
+entram como commit novo.
+
+## Consequências
+
+### O que ganhamos
+
+- A configuração de cada repositório corresponde ao que o CONTRIBUTING descreve
+- PRs novos sugerem a `dev` como destino, e clones novos começam nela
+- Nenhuma alteração no CI central entra sem PR e sem o check de governança
+- Cada uso de bypass fica justificado no próprio PR
+
+### O que aceitamos em troca
+
+- O bypass continua tecnicamente disponível aos administradores; a restrição depende de disciplina
+  e do registro no PR
+- O `.github` não exige aprovação: uma mudança do mantenedor nos workflows centrais afeta todos os
+  repositórios sem revisão de outra pessoa
+- O `--force-with-lease` depende de a pessoa respeitar o limite "antes do review"; o GitHub não
+  impede o force push em branches de tarefa
+- A restrição de nome de branch por ruleset exige plano Enterprise; o padrão de nome segue validado
+  apenas pelo check de governança
+
+## Validação
+
+A consulta `GET /repos/Vitryne/<repositório>/rules/branches/main` (e `/dev`) retorna as regras e os
+checks descritos acima para cada repositório, e a branch padrão do `frontend`, do `backend` e do
+`mobile` é `dev`.
+
+## Evidências
+
+- Rulesets `protecao-dev` e `protecao-main` do `frontend`, do `backend` e do `mobile`
+- Ruleset da `main` do `.github` — PR obrigatório, 0 aprovações, check de governança
+- `.github/CONTRIBUTING.md` — seções de bypass, force push e comandos com cuidado
+- ETI-381 — configurações da organização no GitHub
+- ADR-003 — processo de desenvolvimento, que esta ADR complementa
+- `.github/CODEOWNERS` do `frontend`, do `backend`, do `mobile` e do `docs` - dono de código por time

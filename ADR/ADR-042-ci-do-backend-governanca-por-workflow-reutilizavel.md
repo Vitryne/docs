@@ -1,13 +1,13 @@
 ---
 id: ADR-042
 titulo: Validar PRs do back-end com o workflow de governança reutilizável e dono de código por time
-status: Aceita
+status: Substituída
 data: 2026-11-01
 autor: Henrique Pacheco
 decisores: Henrique Pacheco e João Ehlers
 area: Back-end
 substitui: —
-substituida-por: —
+substituida-por: ADR-044
 ---
 
 # ADR-042 — Validar PRs do back-end com o workflow de governança reutilizável e dono de código por time
