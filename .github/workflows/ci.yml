@@ -5,6 +5,13 @@ on:
     branches: [main]
     types: [opened, edited, synchronize, reopened]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   governanca:
     uses: vitryne/.github/.github/workflows/governance.yml@main
