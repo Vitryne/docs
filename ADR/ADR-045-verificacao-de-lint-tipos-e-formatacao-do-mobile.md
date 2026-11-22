@@ -4,7 +4,7 @@ titulo: Verificar lint, tipos e formatação de todo PR do mobile, com as regras
 status: Aceita
 data: 2026-11-22
 autor: Gabriel Rodrigues
-decisores: Gabriel Rodrigues
+decisores: Gabriel Rodrigues e Leonardo Xavier
 area: Mobile
 substitui: —
 substituida-por: —

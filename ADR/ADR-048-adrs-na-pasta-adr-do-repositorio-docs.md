@@ -4,7 +4,7 @@ titulo: Manter as ADRs na pasta ADR do repositório docs, com as convenções da
 status: Aceita
 data: 2026-11-22
 autor: Gabriel Rodrigues
-decisores: Gabriel Rodrigues
+decisores: Gabriel Rodrigues e Hugo Zuin
 area: Governança
 substitui: ADR-001
 substituida-por: —
