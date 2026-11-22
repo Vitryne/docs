@@ -77,8 +77,9 @@ por isso não aparece no índice.
 | [ADR-047](ADR-047-protecao-de-branches-por-rulesets-e-politica-de-bypass.md) | Proteger main e dev por rulesets em todos os repositórios, com dev como branch padrão e bypass restrito aos administradores | Aceita | Governança |
 | [ADR-048](ADR-048-adrs-na-pasta-adr-do-repositorio-docs.md) | Manter as ADRs na pasta ADR do repositório docs, com as convenções da ADR-001 | Aceita | Governança |
 | [ADR-049](ADR-049-licenca-mit-nos-repositorios.md) | Licenciar os repositórios da organização sob MIT, com documentos de terceiros fora da licença | Aceita | Governança |
+| [ADR-050](ADR-050-armazenamento-do-token-no-mobile-com-secure-store.md) | Guardar o token do app no armazenamento seguro do sistema com expo-secure-store, e no localStorage quando o app roda na web | Aceita | Mobile |
 
-Próximo ID livre: **ADR-050**.
+Próximo ID livre: **ADR-057**.
 
 ## Fila de decisões ainda não registradas
 
