@@ -10,7 +10,7 @@ substitui: —
 substituida-por: —
 ---
 
-# ADR-050 — Guardar o token do app no armazenamento seguro do sistema com expo-secure-store, e no localStorage quando o app roda na web
+# ADR-050 — Guardar o token do app no armazenamento seguro do sistema com expo-secure-store
 
 ## Contexto e problema
 
