@@ -77,8 +77,11 @@ por isso não aparece no índice.
 | [ADR-047](ADR-047-protecao-de-branches-por-rulesets-e-politica-de-bypass.md) | Proteger main e dev por rulesets em todos os repositórios, com dev como branch padrão e bypass restrito aos administradores | Aceita | Governança |
 | [ADR-048](ADR-048-adrs-na-pasta-adr-do-repositorio-docs.md) | Manter as ADRs na pasta ADR do repositório docs, com as convenções da ADR-001 | Aceita | Governança |
 | [ADR-049](ADR-049-licenca-mit-nos-repositorios.md) | Licenciar os repositórios da organização sob MIT, com documentos de terceiros fora da licença | Aceita | Governança |
+| [ADR-054](ADR-054-pagamento-simulado-ate-a-integracao-com-gateway.md) | Simular o pagamento no checkout, com um único ponto de troca para a integração com gateway | Aceita | Back-end |
+| [ADR-055](ADR-055-representacao-de-valores-monetarios.md) | Representar valores monetários em reais com duas casas decimais no banco e na API, sem arredondamento implícito | Aceita | Back-end |
+| [ADR-056](ADR-056-concorrencia-no-checkout-com-bloqueio-pessimista-e-token-de-revisao.md) | Confirmar o checkout com bloqueio pessimista do usuário e das variações, e com um token que garante os valores da revisão | Aceita | Back-end |
 
-Próximo ID livre: **ADR-050**.
+Próximo ID livre: **ADR-057**.
 
 ## Fila de decisões ainda não registradas
 
@@ -89,7 +92,7 @@ Próximo ID livre: **ADR-050**.
 | Escala de 1M escritas para 2M leituras | Exigência do regulamento; define estratégia de cache, réplica de leitura e índices | Regulamento, requisito (d) |
 | Cache | Redis aparecia na stack do `docs/README.md`, corrigida na ETI-390, e não existe no `pom.xml`; decidir se entra, onde e com que política de invalidação | Regulamento, requisito (d) |
 | Websocket | Exigência do regulamento: pelo menos um caso de uso; falta escolher qual — acompanhamento de pedido é o candidato natural | Regulamento, requisito (e) |
-| Integração de pagamento | Exigência do regulamento em ambiente de homologação; gateway a escolher, com PIX previsto no produto | Regulamento, requisito (f) |
+| Integração de pagamento | Exigência do regulamento em ambiente de homologação. O checkout usa pagamento simulado (ADR-054); falta escolher o gateway e integrá-lo, com PIX previsto no produto | Regulamento, requisito (f), ADR-054 |
 | Plataforma de deploy do back-end | O front-end publica na Vercel (ADR-035). Falta o back-end: a ADR-021 já cita o Render como destino, sem decisão registrada | Regulamento, requisito (g) |
 | Estratégia de testes automatizados | Exigência do regulamento: unitários e de integração. O back-end tem testes unitários e de contexto Spring, que rodam no CI em todo PR (ADR-044), mas nenhum teste de integração com banco. Front e mobile não têm teste | ETI-123, ETI-159, ETI-160, ETI-388 |
 | Versionamento da API | Prefixo de versão e política de mudança incompatível; hoje os endpoints não têm versão, e o Swagger rotula a API como `v1-mvp` | ADR-037, ADR-040 |
@@ -106,6 +109,7 @@ Próximo ID livre: **ADR-050**.
 | Acessibilidade | Contraste, alvo de toque e leitor de tela sem critério; `SelectUf` é um dropdown próprio sem `role`, `aria-*` nem navegação por teclado | ADR-024 |
 | Expiração e revogação de token | A expiração padrão do código é 3600 s, sem decisão registrada. Falta refresh token e o que fazer para invalidar antes do vencimento | ADR-038 |
 | Publicação do app iOS | A ADR-022 entrega só Android por APK; o iOS fica como melhoria futura, sem decisão de quando | ADR-022 |
+| Armazenamento de imagens | As fotos de produto são URLs gravadas no banco, e o cadastro da loja envia imagens de exemplo para logo e banner; falta decidir onde as imagens ficam guardadas e como são enviadas | ADR-052 |
 
 ### Decisões já implementadas que ainda não têm ADR
 
