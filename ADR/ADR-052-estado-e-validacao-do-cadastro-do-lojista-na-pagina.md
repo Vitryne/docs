@@ -10,7 +10,7 @@ substitui: ADR-027
 substituida-por: —
 ---
 
-# ADR-052— Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper
+# ADR-052 — Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper
 
 ## Contexto e problema
 
