@@ -27,7 +27,7 @@ por isso não aparece no índice.
 ## Índice
 
 | ID | Decisão | Status | Área |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | [ADR-001](ADR-001-registro-de-decisoes-em-adrs-versionadas.md) | Registrar decisões arquiteturais como ADRs versionadas no repositório | Substituída por ADR-048 | Governança |
 | [ADR-002](ADR-002-quatro-repositorios-por-aplicacao.md) | Separar o projeto em quatro repositórios por aplicação sob uma organização GitHub | Aceita | Governança |
 | [ADR-003](ADR-003-processo-de-desenvolvimento-e-estrategia-de-branches.md) | Processo de desenvolvimento, estratégia de branches e definition of done | Aceita | Governança |
@@ -54,7 +54,7 @@ por isso não aparece no índice.
 | [ADR-024](ADR-024-componentes-ui-proprios.md) | Componentes de UI próprios em vez de biblioteca de componentes pronta | Aceita | Front-end |
 | [ADR-025](ADR-025-convencao-pr-ownership-ecossistema.md) | Convenção de PR e ownership compartilhados com o ecossistema Vitryne | Substituída por ADR-034 | Front-end |
 | [ADR-026](ADR-026-turbopack-bundler.md) | Turbopack como bundler de desenvolvimento e build | Aceita | Front-end |
-| [ADR-027](ADR-027-estado-wizard-cadastro.md) | Estado do cadastro em etapas controlado localmente por índice | Aceita | Front-end |
+| [ADR-027](ADR-027-estado-wizard-cadastro.md) | Estado do cadastro em etapas controlado localmente por índice | Substituída por ADR-052 | Front-end |
 | [ADR-028](ADR-028-tokens-tema-tailwind-v4.md) | Tokens de tema no Tailwind CSS v4 via @theme no CSS global | Aceita | Front-end |
 | [ADR-029](ADR-029-mascaras-react-imask.md) | Máscaras de campo com react-imask e estado local por campo | Aceita | Front-end |
 | [ADR-030](ADR-030-cerimonias-e-artefatos-de-sprint.md) | Cerimônias do time e artefatos que cada uma produz | Aceita | Governança |
@@ -78,6 +78,12 @@ por isso não aparece no índice.
 | [ADR-048](ADR-048-adrs-na-pasta-adr-do-repositorio-docs.md) | Manter as ADRs na pasta ADR do repositório docs, com as convenções da ADR-001 | Aceita | Governança |
 | [ADR-049](ADR-049-licenca-mit-nos-repositorios.md) | Licenciar os repositórios da organização sob MIT, com documentos de terceiros fora da licença | Aceita | Governança |
 | [ADR-050](ADR-050-armazenamento-do-token-no-mobile-com-secure-store.md) | Guardar o token do app no armazenamento seguro do sistema com expo-secure-store | Aceita | Mobile |
+| [ADR-051](ADR-051-armazenamento-do-token-no-portal-do-lojista.md) | Guardar o token do portal no localStorage quando o lojista pede para lembrar o dispositivo, e no sessionStorage nos demais casos | Aceita | Front-end |
+| [ADR-052](ADR-052-estado-e-validacao-do-cadastro-do-lojista-na-pagina.md) | Centralizar o estado do cadastro do lojista na página, validar por etapa e converter para o DTO num mapper | Aceita | Front-end |
+| [ADR-053](ADR-053-bibliotecas-especializadas-para-componentes-complexos-do-painel.md) | Aceitar bibliotecas especializadas para componentes complexos do painel, mantendo próprios os componentes básicos | Aceita | Front-end |
+| [ADR-054](ADR-054-pagamento-simulado-ate-a-integracao-com-gateway.md) | Simular o pagamento no checkout, com um único ponto de troca para a integração com gateway | Aceita | Back-end |
+| [ADR-055](ADR-055-representacao-de-valores-monetarios.md) | Representar valores monetários em reais com duas casas decimais no banco e na API, sem arredondamento implícito | Aceita | Back-end |
+| [ADR-056](ADR-056-concorrencia-no-checkout-com-bloqueio-pessimista-e-token-de-revisao.md) | Confirmar o checkout com bloqueio pessimista do usuário e das variações, e com um token que garante os valores da revisão | Aceita | Back-end |
 
 Próximo ID livre: **ADR-057**.
 
@@ -90,7 +96,7 @@ Próximo ID livre: **ADR-057**.
 | Escala de 1M escritas para 2M leituras | Exigência do regulamento; define estratégia de cache, réplica de leitura e índices | Regulamento, requisito (d) |
 | Cache | Redis aparecia na stack do `docs/README.md`, corrigida na ETI-390, e não existe no `pom.xml`; decidir se entra, onde e com que política de invalidação | Regulamento, requisito (d) |
 | Websocket | Exigência do regulamento: pelo menos um caso de uso; falta escolher qual — acompanhamento de pedido é o candidato natural | Regulamento, requisito (e) |
-| Integração de pagamento | Exigência do regulamento em ambiente de homologação; gateway a escolher, com PIX previsto no produto | Regulamento, requisito (f) |
+| Integração de pagamento | Exigência do regulamento em ambiente de homologação. O checkout usa pagamento simulado (ADR-054); falta escolher o gateway e integrá-lo, com PIX previsto no produto | Regulamento, requisito (f), ADR-054 |
 | Plataforma de deploy do back-end | O front-end publica na Vercel (ADR-035). Falta o back-end: a ADR-021 já cita o Render como destino, sem decisão registrada | Regulamento, requisito (g) |
 | Estratégia de testes automatizados | Exigência do regulamento: unitários e de integração. O back-end tem testes unitários e de contexto Spring, que rodam no CI em todo PR (ADR-044), mas nenhum teste de integração com banco. Front e mobile não têm teste | ETI-123, ETI-159, ETI-160, ETI-388 |
 | Versionamento da API | Prefixo de versão e política de mudança incompatível; hoje os endpoints não têm versão, e o Swagger rotula a API como `v1-mvp` | ADR-037, ADR-040 |
@@ -102,11 +108,10 @@ Próximo ID livre: **ADR-057**.
 | Observabilidade | Hoje há log em controller; falta decidir formato, nível e destino | — |
 | Valores do Design System no código | Como manter cor, espaçamento e raio iguais entre o Figma, o `@theme` do `global.css` e o `commonStyles.ts` do mobile, sem detecção automática de divergência | ADR-016, ADR-018, ADR-028 |
 | Ligação entre componente do Figma e componente do código | Hoje a correspondência é manual e não é verificável | ADR-016 |
-| Composição do payload do cadastro do lojista | O estado de cada etapa não sobe para `Register`, então não há como montar o envio final | ADR-027, ADR-029 |
-| Validação de formulário no front | Sem biblioteca e sem regra de obrigatoriedade ou formato; CNPJ e CEP inválidos passam | ADR-029 |
 | Acessibilidade | Contraste, alvo de toque e leitor de tela sem critério; `SelectUf` é um dropdown próprio sem `role`, `aria-*` nem navegação por teclado | ADR-024 |
 | Expiração e revogação de token | A expiração padrão do código é 3600 s, sem decisão registrada. Falta refresh token e o que fazer para invalidar antes do vencimento | ADR-038 |
 | Publicação do app iOS | A ADR-022 entrega só Android por APK; o iOS fica como melhoria futura, sem decisão de quando | ADR-022 |
+| Armazenamento de imagens | As fotos de produto são URLs gravadas no banco, e o cadastro da loja envia imagens de exemplo para logo e banner; falta decidir onde as imagens ficam guardadas e como são enviadas | ADR-052 |
 
 ### Decisões já implementadas que ainda não têm ADR
 
@@ -126,9 +131,12 @@ Correções a fazer nos repositórios, encontradas durante a consolidação das 
 - ADR-014: o caminho do `use-http.ts` na Evidência está errado, e a versão do `next` citada (15.5.18) está velha (15.5.28 no `package.json`). A lista de páginas cita 4 e o repositório tem 17.
 - ADR-024: os componentes citados em `frontend/src/components/` estão em `frontend/src/components/ui/`, e o `button.tsx` não existe (há `button-primary.tsx`, `button-secondary.tsx` e `button-google.tsx`).
 - ADR-026: a versão do `next` citada na Evidência (15.5.18) está velha.
-- ADR-027: o cadastro tem 5 etapas, não 6 (sem o primeiro produto, e em outra ordem), e o `Component` é renderizado sem props, com o `onNext` no `StepFooter`. Os caminhos de evidência (`steps-register/`, `sidebar-register.tsx`) não existem; os arquivos estão em `components/features/store-register/`.
 - ADR-028: a validação "nenhuma cor hex fora do `global.css`" é violada em `frontend/src/pages/login.tsx:26` (`to-[#3B0F63]/90`). O `--font-mono` (Geist Mono) existe no `@theme` e a ADR não o cita.
 - ADR-029: o `MaskedInput` está em `frontend/src/components/ui/masked-input.tsx`, e o `StepStore` em `frontend/src/components/features/store-register/components/steps/step-store.tsx`, não nos caminhos da Evidência.
+- ADR-041: a seção de alternativas diz que o bloqueio pessimista não foi avaliado; o checkout passou a usá-lo junto com o bloqueio otimista. Ver ADR-056.
+- ADR-024: a Evidência diz que o front-end não usa `@radix-ui/*`; hoje usa o `@radix-ui/react-slider` nos filtros de pedidos, conforme a exceção da ADR-053.
+- ADR-028: os gráficos do painel escrevem as cores em hexadecimal nos componentes, iguais às do `@theme`. Ver ADR-053.
+- ADR-033: as telas de dashboard, financeiro e categorias, o formulário de produto, o modal de nova categoria e a etapa de dados bancários importam os mocks direto, e não por um service.
 
 ## Referências
 
