@@ -84,8 +84,9 @@ por isso não aparece no índice.
 | [ADR-054](ADR-054-pagamento-simulado-ate-a-integracao-com-gateway.md) | Simular o pagamento no checkout, com um único ponto de troca para a integração com gateway | Aceita | Back-end |
 | [ADR-055](ADR-055-representacao-de-valores-monetarios.md) | Representar valores monetários em reais com duas casas decimais no banco e na API, sem arredondamento implícito | Aceita | Back-end |
 | [ADR-056](ADR-056-concorrencia-no-checkout-com-bloqueio-pessimista-e-token-de-revisao.md) | Confirmar o checkout com bloqueio pessimista do usuário e das variações, e com um token que garante os valores da revisão | Aceita | Back-end |
+| [ADR-057](ADR-057-imagens-no-cloudinary-com-upload-pelo-backend.md) | Guardar as imagens no Cloudinary, enviadas pelo back-end e registradas no banco para limpeza das sem uso | Proposta | Back-end |
 
-Próximo ID livre: **ADR-057**.
+Próximo ID livre: **ADR-058**.
 
 ## Fila de decisões ainda não registradas
 
@@ -111,7 +112,6 @@ Próximo ID livre: **ADR-057**.
 | Acessibilidade | Contraste, alvo de toque e leitor de tela sem critério; `SelectUf` é um dropdown próprio sem `role`, `aria-*` nem navegação por teclado | ADR-024 |
 | Expiração e revogação de token | A expiração padrão do código é 3600 s, sem decisão registrada. Falta refresh token e o que fazer para invalidar antes do vencimento | ADR-038 |
 | Publicação do app iOS | A ADR-022 entrega só Android por APK; o iOS fica como melhoria futura, sem decisão de quando | ADR-022 |
-| Armazenamento de imagens | As fotos de produto são URLs gravadas no banco, e o cadastro da loja envia imagens de exemplo para logo e banner; falta decidir onde as imagens ficam guardadas e como são enviadas | ADR-052 |
 
 ### Decisões já implementadas que ainda não têm ADR
 
